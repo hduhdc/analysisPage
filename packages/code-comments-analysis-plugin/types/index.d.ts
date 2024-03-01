@@ -1,1 +1,1 @@
-export declare function analysizeComments(string): void;
+export declare function analysizeComments(content:string,type:string): void;

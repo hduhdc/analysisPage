@@ -43,6 +43,9 @@ export default {
     test(){
         // 测试注释
         console.log(12)
+        /**
+         * asdfdasfdsfdsf
+        */
     }
   }
 };

@@ -1,22 +1,21 @@
 import MagicString from "magic-string";
 
 import { parse, transform } from "@vue/compiler-dom";
-import { parse as parseSFC } from '@vue/compiler-sfc';
-
+import { parse as parseSFC } from "@vue/compiler-sfc";
+import { transformJsx } from "./transformJSX.js";
 
 type StringArr = string[];
 
-
 export function transformVue(content: string) {
-  const s = new MagicString(content);
+ 
 
   const ast = parse(content, {
     comments: true,
   });
-  // console.log(ast);
+  console.log(ast);
 
-  const domComments:StringArr = [];
-  const scriptConten:StringArr = [];
+  const domComments: StringArr = [];
+  const scriptConten: StringArr = [];
   transform(ast, {
     nodeTransforms: [
       (node) => {
@@ -30,10 +29,14 @@ export function transformVue(content: string) {
     ],
   });
   // console.log(domComments);
-
+  // 解析script 部分
   const { descriptor } = parseSFC(content, {
     sourceMap: false,
   });
-  console.log(descriptor.script)
-   
+    if(descriptor.script){
+      // console.log(descriptor.script.content)
+      // transformJsx(descriptor.script.content);
+    }
+  
+  
 }

@@ -7,7 +7,7 @@ export default defineConfig({
       entry: ['src/index.ts'],
       formats: ['es', 'cjs'],
       fileName: '[name]',
-      name: 'viteInspectorCore',
+      name: 'code-comments-analysis-plugin',
     },
     minify: true,
     emptyOutDir: true,
