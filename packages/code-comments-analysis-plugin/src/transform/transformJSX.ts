@@ -8,9 +8,10 @@ import importMetaPlugin from '@babel/plugin-syntax-import-meta';
 // @ts-ignore
 import proposalDecorators from '@babel/plugin-proposal-decorators';
 
- 
-export function transformJsx(content: string) {
+import { StringArr ,jsxComments} from "./type";
 
+export function transformJsx(content: string) {
+  const comments: StringArr = [];
   const ast = parse(content, {
     babelrc: false,
     comments: true,
@@ -25,12 +26,18 @@ export function transformJsx(content: string) {
 
   traverse(ast, {
     enter({ node }: any) {
-      console.log('jsx11',node)
-      // const nodeName = node?.openingElement?.name?.name || '';
-      // const attributes = node?.openingElement?.attributes || [];
+       if(node.trailingComments){
+        node.trailingComments.forEach((content:jsxComments) => {
+          if(content.value){
+            comments.push(content.value);
+          }
+        });
+        
+       }
       
     },
   });
+  console.log('jsx',comments)
 
   
 }

@@ -34,6 +34,7 @@
   "bugs": {},
   "scripts": {
     "dev": "tsc && vite build --watch",
+    "build": "tsc && vite build",
     "pub": "pnpm publish",
     "pub:beta": "pnpm publish --tag beta"
   },
