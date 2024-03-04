@@ -31,15 +31,14 @@
     "vue",
     "commonts"
   ],
-  "bugs": {
-     
-  },
+  "bugs": {},
   "scripts": {
-    "dev": "vite build --watch",
+    "dev": "tsc && vite build --watch",
     "pub": "pnpm publish",
     "pub:beta": "pnpm publish --tag beta"
   },
   "dependencies": {
+    "@babel/plugin-syntax-typescript": "7.20.0",
     "@vue/compiler-dom": "^3.2.47",
     "chalk": "^4.1.1",
     "portfinder": "^1.0.28"
@@ -57,7 +56,7 @@
     "magic-string": "^0.30.0",
     "svelte": "^4.2.7",
     "typescript": "^4.9.3",
-    "vite": "^4.3.9",
+    "vite": "4.2.0",
     "vite-plugin-node-stdlib-browser": "^0.2.1"
   }
 }

@@ -1,8 +1,8 @@
-import MagicString from "magic-string";
+// import MagicString from "magic-string";
 
 import { parse, transform } from "@vue/compiler-dom";
 import { parse as parseSFC } from "@vue/compiler-sfc";
-import { transformJsx } from "./transformJSX.js";
+// import { transformJsx } from "./transformJSX.js";
 
 type StringArr = string[];
 

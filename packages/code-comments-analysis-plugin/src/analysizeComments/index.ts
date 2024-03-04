@@ -7,9 +7,7 @@ import { transformJsx } from "../transform/transformJSX";
 // const path = require("path");
 // const url = path.join(__dirname, "test.vue");
 
-
-
-
+ 
 
 export async function analysizeComments(content:string,type:string) {
  
@@ -18,6 +16,8 @@ export async function analysizeComments(content:string,type:string) {
     }else if(type==='jsx'){
         transformJsx(content)
     }
+   
+   
     
    
 }

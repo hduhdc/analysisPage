@@ -18,14 +18,14 @@ export function transformJsx(content: string) {
     plugins: [
       importMetaPlugin,
       [vueJsxPlugin, {}],
-      // [tsPlugin, { isTSX: false, allowExtensions: true }],
+      [tsPlugin, { isTSX: false, allowExtensions: true }],
       [proposalDecorators, { legacy: true }],
     ],
   });
 
   traverse(ast, {
     enter({ node }: any) {
-      console.log('jsx',node)
+      console.log('jsx11',node)
       // const nodeName = node?.openingElement?.name?.name || '';
       // const attributes = node?.openingElement?.attributes || [];
       
