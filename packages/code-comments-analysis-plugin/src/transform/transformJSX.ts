@@ -18,7 +18,7 @@ export function transformJsx(content: string) {
     plugins: [
       importMetaPlugin,
       [vueJsxPlugin, {}],
-      // [tsPlugin, { isTSX: true, allowExtensions: true }],
+      // [tsPlugin, { isTSX: false, allowExtensions: true }],
       [proposalDecorators, { legacy: true }],
     ],
   });
