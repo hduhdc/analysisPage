@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "code-comments-analysis": "workspace:*"
+    "@vue/compiler-dom": "^3.2.47",
+    "code-comments-analysis-plugin": "workspace:*"
   }
 }

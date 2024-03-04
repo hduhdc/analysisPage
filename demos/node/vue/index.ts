@@ -1,6 +1,6 @@
-import {analysizeComments} from "code-comments-analysis";
+import {analysizeCommentsCore} from "code-comments-analysis-plugin";
 const fs = require("fs");
 const path = require("path");
 const url = path.join(__dirname, "test.vue");
 const content =fs.readFileSync(url);
- analysizeComments(content.toString(),'vue');
+analysizeCommentsCore(content.toString(),'vue');

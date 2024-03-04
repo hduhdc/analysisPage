@@ -1,2 +1,3 @@
-export * from './analysizeComments';
- 
+import {analysizeComments} from 'code-comments-analysis-core';
+
+export const analysizeCommentsCore = analysizeComments

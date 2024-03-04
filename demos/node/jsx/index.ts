@@ -1,6 +1,8 @@
 // import { transformJsx } from "./transferJSX";
 // import { analysizeComments } from "code-comments-analysis";
-const aa =require('code-comments-analysis');
+// const aa =require('code-comments-analysis-plugin');
+import {analysizeCommentsCore} from "code-comments-analysis-plugin";
+
 const fs = require("fs");
 const path = require("path");
 
@@ -8,4 +10,4 @@ const url = path.join(__dirname, "test.jsx");
  
 const content = fs.readFileSync(url).toString();
  
-console.log(aa.analysizeComments(content,'jsx'))
+console.log(analysizeCommentsCore(content,'jsx'))
