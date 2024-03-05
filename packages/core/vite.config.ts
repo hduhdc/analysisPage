@@ -20,7 +20,7 @@ export default defineConfig({
         'crypto',
         'http',
         'https',
-        // 'chalk',
+        'chalk',
         'portfinder',
         'child_process',
         '@vue/compiler-dom',

@@ -39,7 +39,9 @@
     "pub:beta": "pnpm publish --tag beta"
   },
   "dependencies": {
-    "code-comments-analysis-core": "workspace:*"
+    "code-comments-analysis-core": "workspace:*",
+    "chalk": "4.1.1",
+    "@vue/compiler-dom": "^3.2.47"
   },
   "devDependencies": {
     "@types/node": "^18.14.1",
