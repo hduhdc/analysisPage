@@ -1,30 +1,30 @@
-// import {
-//   transformCode,
-//   normalizePath,
-//   parseSFC,
-//   isJsTypeFile,
-// } from 'code-inspector-core';
+import {
+  // parseSFC,
+  isJsTypeFile,
+  normalizePath,
+  analysizeComments,
+} from "code-comments-analysis-core";
 
-// const jsxParamList = ['isJsx', 'isTsx', 'lang.jsx', 'lang.tsx'];
+const jsxParamList = ["isJsx", "isTsx", "lang.jsx", "lang.tsx"];
 
-export default async function WebpackCodeCommentsLoader() {//content: string
-  // this.cacheable && this.cacheable(true);
-  // const filePath = normalizePath(this.resourcePath); // 当前文件的绝对路径
-  // let params = new URLSearchParams(this.resource);
+export default async function WebpackCodeCommentsLoader(content: string) {
+  this.cacheable && this.cacheable(true);
+  const filePath = normalizePath(this.resourcePath); // 当前文件的绝对路径
+  let params = new URLSearchParams(this.resource);
 
-  // // jsx 语法
-  // const isJSX =
-  //   isJsTypeFile(filePath) ||
-  //   (filePath.endsWith('.vue') &&
-  //     jsxParamList.some((param) => params.get(param) !== null));
-  // if (isJSX) {
-  //   return transformCode({ content, filePath, fileType: 'jsx' });
-  // }
+  // jsx 语法
+  const isJSX =
+    isJsTypeFile(filePath) ||
+    (filePath.endsWith(".vue") &&
+      jsxParamList.some((param) => params.get(param) !== null));
+  if (isJSX) {
+    return analysizeComments(content, "jsx");
+  }
 
-  // // vue jsx
+  // vue jsx
   // const isJsxWithScript =
-  //   filePath.endsWith('.vue') &&
-  //   (params.get('lang') === 'tsx' || params.get('lang') === 'jsx');
+  //   filePath.endsWith(".vue") &&
+  //   (params.get("lang") === "tsx" || params.get("lang") === "jsx");
   // if (isJsxWithScript) {
   //   const { descriptor } = parseSFC(content, {
   //     sourceMap: false,
@@ -35,33 +35,30 @@ export default async function WebpackCodeCommentsLoader() {//content: string
   //     descriptor.script?.content,
   //     descriptor.scriptSetup?.content,
   //   ];
+  //   let comments = [];
   //   for (const script of scripts) {
   //     if (!script) continue;
-  //     const newScript = transformCode({
-  //       content: script,
-  //       filePath,
-  //       fileType: 'jsx',
-  //     });
-  //     content = content.replace(script, newScript);
+     
+  //     comments = comments.concat ( analysizeComments(script,'jsx'));
   //   }
-  //   return content;
+  //   return comments;
   // }
 
-  // // vue
-  // const isVue =
-  //   filePath.endsWith('.vue') &&
-  //   params.get('type') !== 'style' &&
-  //   params.get('type') !== 'script' &&
-  //   params.get('raw') === null;
-  // if (isVue) {
-  //   return transformCode({ content, filePath, fileType: 'vue' });
-  // }
+  // vue
+  const isVue =
+    filePath.endsWith(".vue") &&
+    params.get("type") !== "style" &&
+    params.get("type") !== "script" &&
+    params.get("raw") === null;
+  if (isVue) {
+    return analysizeComments(content, "vue");
+  }
 
-  // // svelte
-  // const isSvelte = filePath.endsWith('.svelte');
-  // if (isSvelte) {
-  //   return transformCode({ content, filePath, fileType: 'svelte' });
-  // }
+  // svelte
+  const isSvelte = filePath.endsWith(".svelte");
+  if (isSvelte) {
+    return analysizeComments(content,"svelte");
+  }
 
-  // return content;
+  return content;
 }

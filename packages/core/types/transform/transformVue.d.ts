@@ -1,1 +1,1 @@
-export declare function transformVue(content: string): void;
+export declare function transformVue(content: string): string[];

@@ -7,15 +7,12 @@ import { transformJsx } from "./transformJSX.js";
 type StringArr = string[];
 
 export function transformVue(content: string) {
- 
-
   const ast = parse(content, {
     comments: true,
   });
-  
 
   const domComments: StringArr = [];
-  const scriptConten: StringArr = [];
+  let scriptComments: StringArr = [];
   transform(ast, {
     nodeTransforms: [
       (node) => {
@@ -23,20 +20,24 @@ export function transformVue(content: string) {
           domComments.push(node.content);
         } else if (node.type === 2) {
           // console.log(node)
-          scriptConten.push(node.content);
+          // scriptComments.push(node.content);
         }
       },
     ],
   });
-  console.log('vueDom',domComments);
+  // console.log('vueDom',domComments);
   // 解析script 部分
   const { descriptor } = parseSFC(content, {
     sourceMap: false,
   });
-    if(descriptor.script){
-      // console.log(descriptor.script.content)
-      transformJsx(descriptor.script.content);
-    }
-  
-  
+  if (descriptor.script && descriptor.script.content) {
+    // console.log(descriptor.script.content)
+    scriptComments = transformJsx(descriptor.script.content);
+  }
+  if (descriptor.scriptSetup?.content) {
+    scriptComments = scriptComments.concat(
+      transformJsx(descriptor.scriptSetup.content)
+    );
+  }
+  return scriptComments.concat(domComments)
 }

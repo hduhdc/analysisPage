@@ -1,1 +1,2 @@
-export declare function transformJsx(content: string): void;
+import { StringArr } from "./type";
+export declare function transformJsx(content: string): StringArr;

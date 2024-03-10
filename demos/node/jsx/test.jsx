@@ -10,6 +10,7 @@ class OrderChange extends React.Component {
   test(name:string){
     var a:string = name;
   }
+  
   componentDidMount() {
 
     const { match: { params: { id } = {} } = {} } = this.props;
@@ -22,6 +23,7 @@ class OrderChange extends React.Component {
 
 
   }
+   
   
 }
 

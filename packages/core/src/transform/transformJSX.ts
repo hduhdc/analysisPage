@@ -12,32 +12,39 @@ import { StringArr ,jsxComments} from "./type";
 
 export function transformJsx(content: string) {
   const comments: StringArr = [];
-  const ast = parse(content, {
-    babelrc: false,
-    comments: true,
-    configFile: false,
-    plugins: [
-      importMetaPlugin,
-      [vueJsxPlugin, {}],
-      [tsPlugin, { isTSX: false, allowExtensions: true }],
-      [proposalDecorators, { legacy: true }],
-    ],
-  });
-
-  traverse(ast, {
-    enter({ node }: any) {
-       if(node.trailingComments){
-        node.trailingComments.forEach((content:jsxComments) => {
-          if(content.value){
-            comments.push(content.value);
-          }
-        });
+  console.log(11212)
+  try{
+    const ast = parse(content, {
+      babelrc: false,
+      comments: true,
+      configFile: false,
+      plugins: [
+        importMetaPlugin,
+        [vueJsxPlugin, {}],
+        [tsPlugin, { isTSX: true, allowExtensions: true }],
+        [proposalDecorators, { legacy: true }],
+      ],
+    });
+  
+    traverse(ast, {
+      enter({ node }: any) {
+         if(node.trailingComments){
+          node.trailingComments.forEach((content:jsxComments) => {
+            if(content.value){
+              comments.push(content.value);
+            }
+          });
+          
+         }
         
-       }
-      
-    },
-  });
-  console.log('jsx',comments)
+      },
+    });
+  }catch(err){
+    console.log(err)
+  }
+ 
+  // console.log('jsx',comments)
+  return comments;
 
   
 }
