@@ -1,6 +1,6 @@
 {
   "name": "vite-code-comments-analysis-plugin",
-  "version": "0.0.0",
+  "version": "0.0.1-beta02",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "typings": "./types/index.d.ts",
