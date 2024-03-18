@@ -1,8 +1,0 @@
-{
-  "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node",
-    // Other configuration options...
-  },
-  // Include or exclude files as needed...
-}
