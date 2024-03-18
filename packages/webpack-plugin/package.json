@@ -1,6 +1,6 @@
 {
   "name": "webpack-code-comments-analysis-plugin",
-  "version": "0.0.1-beta02",
+  "version": "0.0.1-beta.03",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.mjs",
   "typings": "./types/index.d.ts",

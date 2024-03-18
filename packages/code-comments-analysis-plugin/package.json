@@ -1,6 +1,6 @@
 {
   "name": "code-comments-analysis-plugin",
-  "version": "0.0.1-beta02",
+  "version": "0.0.1-beta.03",
   "main": "dist/index.js",
   "module": "./dist/index.mjs",
   "types": "types/index.d.ts",
