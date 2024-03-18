@@ -1,0 +1,34 @@
+{
+  "name": "code-commonts-analysis",
+  "version": "0.0.1",
+  "repository": "",
+  "author": "无一",
+  "license": "MIT",
+  "homepage": "",
+  "description": "",
+  "keywords": [
+    "webpack",
+    "vite",
+    "plugin",
+    "vue",
+    "vscode",
+    "inspector",
+    "inspect"
+  ],
+  "bugs": {
+    "url": ""
+  },
+  "scripts": {
+    "build": "pnpm --filter \"./packages/*\" run build",
+    "pub": "pnpm --filter \"./packages/*\" run pub",
+    "pub:beta": "pnpm --filter \"./packages/*\" run pub:beta"
+  },
+  "private": true,
+  "main": "index.js",
+  "engines": {
+    "node": ">=16.20.0"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3"
+  }
+}

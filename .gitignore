@@ -1,0 +1,9 @@
+node_modules
+yarn-error.log
+lib
+dist
+cache
+.temp
+dist.zip
+demos
+.DS_Store

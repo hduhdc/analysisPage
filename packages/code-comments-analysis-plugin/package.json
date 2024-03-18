@@ -1,0 +1,51 @@
+{
+  "name": "code-comments-analysis-plugin",
+  "version": "0.0.1-beta02",
+  "main": "dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "types/index.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./types/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./types/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "author": "无一",
+  "license": "MIT",
+  "homepage": "",
+  "description": "",
+  "keywords": [
+    "webpack",
+    "vite",
+    "plugin",
+    "vue",
+    "commonts"
+  ],
+  "bugs": {},
+  "scripts": {
+    "dev": "tsc && vite build --watch",
+    "build": "tsc && vite build",
+    "pub": "pnpm publish",
+    "pub:beta": "pnpm publish --tag beta"
+  },
+  "dependencies": {
+    "code-comments-analysis-core": "workspace:*",
+    "chalk": "4.1.1",
+    "@vue/compiler-dom": "^3.2.47"
+  },
+  "devDependencies": {
+    "@types/node": "^18.14.1",
+    "typescript": "^4.9.3",
+    "vite": "4.2.0"
+  }
+}
